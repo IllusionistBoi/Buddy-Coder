@@ -4,12 +4,9 @@
     <base target="_top">
   </head>
   <body>
-    
-
 <div>
  <img src="https://belikebill.ga/billgen-API.php?default=1&name=Jack" alt='advice' style="width: 600px;">
 </div>
-
   </body>
 </html>
 
