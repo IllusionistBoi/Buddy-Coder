@@ -1,0 +1,55 @@
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  // Or DocumentApp or FormApp.
+  ui.createMenu("I'm Bored") 
+      .addItem('Weather Emoji', 'openWeatherSidebar')
+      .addSeparator()
+      .addItem('Random Joke', 'randomJoke')
+      .addSeparator()
+      .addItem('Random Gif', 'randomGif')
+      .addSeparator()
+      .addItem('Advice', 'advice')
+      .addSeparator()
+      .addItem('Music', 'music')
+      .addToUi();
+}
+
+function openWeatherSidebar() {
+  var htmlOutput = HtmlService.createHtmlOutputFromFile('weatherSidebar')
+      .setTitle('Weather Info')
+      .setWidth(300);
+  
+  SpreadsheetApp.getUi().showSidebar(htmlOutput);
+}
+
+function randomJoke() {
+  var html = HtmlService.createHtmlOutputFromFile('index')
+      .setWidth(400)
+      .setHeight(300);
+  SpreadsheetApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+      .showModalDialog(html, 'Here is a joke about Chuck Norris!');
+}
+
+function advice() {
+  var html = HtmlService.createHtmlOutputFromFile('advice')
+      .setWidth(600)
+      .setHeight(400);
+  SpreadsheetApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+      .showModalDialog(html, 'Learn from it ;)');
+}
+
+function music() {
+  var html = HtmlService.createHtmlOutputFromFile('music')
+      .setWidth(600)
+      .setHeight(400);
+  SpreadsheetApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+      .showModalDialog(html, 'Relax!!');
+}
+
+function randomGif() {
+  var html = HtmlService.createHtmlOutputFromFile('randomGiphy')
+      .setWidth(600)
+      .setHeight(400);
+  SpreadsheetApp.getUi() // Or DocumentApp or SlidesApp or FormApp.
+      .showModalDialog(html, "Here's your GIF!");
+}
