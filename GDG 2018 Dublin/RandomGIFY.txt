@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <div class="js-random-gif"></div>
+  </body>
+  <script>
+    const
+    loadGif = () => {
+      const giphy = {
+		baseURL: "https://api.giphy.com/v1/gifs/",
+		key: "dc6zaTOxFJmzC",
+		tag: "fail",
+		type: "random",
+		rating: "pg-13"
+	  };
+      let giphyURL = encodeURI(
+		giphy.baseURL +
+          giphy.type +
+		  "?api_key=" +
+		  giphy.key +
+		  "&tag=" +
+		  giphy.tag +
+		  "&rating=" +
+		  giphy.rating
+	    );
+        
+        fetch(giphyURL)
+          .then(response => response.json())
+          .then(json => {
+            let gifDiv = document.querySelector('.js-random-gif');
+            gifDiv.style.backgroundImage = `url(${json.data.image_original_url})`;
+            gifDiv.style.backgroundSize = 'contain';
+            gifDiv.style.backgroundRepeat = 'no-repeat';
+            gifDiv.style.margin = '0 auto';
+            gifDiv.style.width = '400px';
+            gifDiv.style.height = '380px';
+          });
+    };
+    loadGif();
+  </script>
+</html>
+
+
