@@ -1,0 +1,21 @@
+
+
+<div>
+ <p id="joke">Loading...</p>
+ <img src="https://media.giphy.com/media/Z9OGuQyrfHAE8/giphy.gif" style="width: 100%">
+</div>
+
+<script>
+    console.log('===========')
+    fetch('https://api.icndb.com/jokes/random', {
+    method: 'get'
+    }).then(function(response) {
+      return response.json()
+    }).then(function(joke) {
+      document.getElementById("joke").innerHTML = JSON.stringify(joke.value.joke);
+    }).catch(function(err) {
+      console.log('error is: '+err)
+    });
+
+
+</script>
